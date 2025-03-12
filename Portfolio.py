@@ -20,7 +20,7 @@ linkedin = "https://linkedin.com/in/muhammad-shahjhan-gondal-493884311"
 github = "https://github.com/shahjhan99"
 
 # ✅ Load & Process Profile Picture
-image_path = r"G:\Jupyter Projects\Portfolio\pic.jpg"
+image_path = r"pic.jpg"
 img = Image.open(image_path)
 
 def image_to_base64(image):
