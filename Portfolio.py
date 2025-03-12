@@ -189,7 +189,7 @@ with col2:
     
     st.subheader("C# Projects")
     st.write("""
-    - **Optics Store Management System (Real-Time Functional) **
+    - **Optics Store Management System (Real-Time Functional)**
     - **Messenger Chat Application**
     - **Pharmacy Management System**
     - **ATM System**
