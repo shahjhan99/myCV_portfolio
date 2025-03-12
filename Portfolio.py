@@ -20,7 +20,7 @@ import base64
 from io import BytesIO
 
 # ✅ Load & Process Profile Picture
-image_path = r"G:\Jupyter Projects\Portfolio\pic.jpg"
+image_path = r"pic.jpg"
 img = Image.open(image_path)
 
 def image_to_base64(image):
