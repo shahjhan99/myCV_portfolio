@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="Portfolio - Shahjhan Gondal", 
     page_icon="📄",
     layout="wide",
-    initial_sidebar_state="expanded"  # Sidebar open by default
+    initial_sidebar_state="collapsed"  # Sidebar open by default
 )
 
 # ✅ Portfolio Information
@@ -45,7 +45,7 @@ circular_image = make_circle(img, new_size=(200, 200))
 
 # ✅ Session State for Sidebar Toggle
 if 'show_contact' not in st.session_state:
-    st.session_state.show_contact = True  # Sidebar open by default
+    st.session_state.show_contact = False  # Sidebar open by default
 
 # ✅ Centered Section
 col1, col2, col3 = st.columns([1, 2, 1])
