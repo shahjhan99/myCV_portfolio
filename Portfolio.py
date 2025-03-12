@@ -3,11 +3,12 @@ from PIL import Image, ImageDraw
 import base64
 from io import BytesIO
 
-# ✅ Page Configuration
+# ✅ Page Config
 st.set_page_config(
     page_title="Portfolio - Shahjhan Gondal", 
     page_icon="📄",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"  # Sidebar open by default
 )
 
 # ✅ Portfolio Information
@@ -19,17 +20,15 @@ linkedin = "https://linkedin.com/in/muhammad-shahjhan-gondal-493884311"
 github = "https://github.com/shahjhan99"
 
 # ✅ Load & Process Profile Picture
-image_path = "pic.jpg"  # Ensure this file is in your repo
+image_path = r"G:\Jupyter Projects\Portfolio\pic.jpg"
 img = Image.open(image_path)
 
-# Function to Convert Image to Base64
 def image_to_base64(image):
     buffered = BytesIO()
     image.save(buffered, format="PNG")
     return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-# Function to Make Circular Image
-def make_circle(image, new_size=(200, 200)):  
+def make_circle(image, new_size=(200, 200)):
     size = min(image.size)
     mask = Image.new("L", (size, size), 0)
     draw = ImageDraw.Draw(mask)
@@ -44,25 +43,25 @@ def make_circle(image, new_size=(200, 200)):
 
 circular_image = make_circle(img, new_size=(200, 200))
 
-# ✅ Toggle Sidebar Position
-if "show_contact" not in st.session_state:
-    st.session_state.show_contact = False
+# ✅ Session State for Sidebar Toggle
+if 'show_contact' not in st.session_state:
+    st.session_state.show_contact = True  # Sidebar open by default
 
-# ✅ Centered Profile Section
+# ✅ Centered Section
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    # Profile Picture
+    # Display the centered circular image
     st.markdown(
-        f"""
+        """
         <div style="display: flex; justify-content: center;">
-            <img src="data:image/png;base64,{image_to_base64(circular_image)}" 
+            <img src="data:image/png;base64,{}" 
                  style="width: 200px; border-radius: 50%;" />
         </div>
-        """,
+        """.format(image_to_base64(circular_image)),
         unsafe_allow_html=True
     )
-    
-    # Name & Title
+
+    # Centered Name & Title using HTML
     st.markdown(
         """
         <div style="text-align: center;">
@@ -73,21 +72,35 @@ with col2:
         unsafe_allow_html=True
     )
 
-    # Contact Button Below Name
-    if st.button("📞 Contact Info", use_container_width=True):
-        st.session_state.show_contact = not st.session_state.show_contact
+    # Centered Contact Info Button Below Title
+    st.markdown(
+        """
+        <style>
+        .stButton>button {
+            font-size: 16px !important;
+            padding: 6px 20px !important; /* Adjust padding */
+            width: 410px !important; /* Set button width */
+            margin: 0 auto !important; /* Center the button */
+            display: block !important; /* Ensure the button is centered */
+            background-color: #2C3E50 !important; /* Dark gray background */
+            color: white !important; /* White text */
+            border: none !important; /* Remove border */
+            border-radius: 5px !important; /* Rounded corners */
+        }
+        .stButton>button:hover {
+            background-color: #34495E !important; /* Slightly lighter gray on hover */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-st.markdown("---")
+    # Button to toggle contact info
+    if st.button("📬 Contact Info"):
+        st.session_state.show_contact = not st.session_state.get("show_contact", True)
 
-# ✅ Contact Section (Toggles Between Sidebar & Main Page)
+# ✅ Sidebar Contact Information Toggle
 if st.session_state.show_contact:
-    st.header("📬 Contact Information")
-    st.write(f"📧 Email: {email}")
-    st.write(f"📞 Phone: {phone}")
-    st.write(f"📍 Address: {address}")
-    st.write(f"🔗 [LinkedIn]({linkedin})")
-    st.write(f"💻 [GitHub]({github})")
-else:
     st.sidebar.header("📬 Contact Information")
     st.sidebar.write(f"📧 Email: {email}")
     st.sidebar.write(f"📞 Phone: {phone}")
@@ -95,10 +108,10 @@ else:
     st.sidebar.write(f"🔗 [LinkedIn]({linkedin})")
     st.sidebar.write(f"💻 [GitHub]({github})")
 
+# ✅ Centered Education
 st.markdown("---")
+st.header("🎓 Education")
 
-# ✅ Education Section
-st.header("🎓 Education", divider="gray")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.write("""
@@ -108,8 +121,8 @@ with col2:
 
 st.markdown("---")
 
-# ✅ Skills Section
-st.header("🚀 Skills", divider="gray")
+# ✅ Skills
+st.header("🚀 Skills")
 st.write("""
 - **Languages:** C#, C++, Python
 - **Tools & IDEs:** VS Code, Jupyter, Visual Studio, PyCharm, Google Colab
@@ -118,7 +131,7 @@ st.write("""
 """)
 
 # ✅ Interests
-st.header("💡 Interests", divider="gray")
+st.header("💡 Interests")
 st.write("""
 - Artificial Intelligence (AI)
 - Machine Learning (ML)
@@ -128,7 +141,7 @@ st.write("""
 """)
 
 # ✅ Certifications
-st.header("🎓 Certifications", divider="gray")
+st.header("🎓 Certifications")
 st.write("""
 - **Artificial Intelligence/ML (Microsoft Certificate - TEVTA)**
   - [View Certificate](https://drive.google.com/file/d/1L4XM5P_aOYgLO1ijiZ0Lh_RM-nRZvHmt/view?usp=sharing)
@@ -140,14 +153,16 @@ st.write("""
 - **MCSE**
 """)
 
+st.markdown("---")
+
 # ✅ Projects Section
-st.header("📂 Projects", divider="gray")
+st.header("📂 Projects")
+
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.subheader("Final Year Project")
     st.write("**AI Resume Analyzer:** AI-driven system for analyzing and scoring resumes for recruitment.")
-
-    # 🔹 AI & Python Projects
+    
     st.subheader("AI & Python Projects")
     st.write("""
     - **Model Training & Fine-tuning**
@@ -161,23 +176,20 @@ with col2:
     - **Logic Gate Prediction using Regression & Neural Networks**
     - **Voice-to-Text System**
     """)
-
-    # 🔹 YOLO Projects
+    
     st.subheader("YOLO Projects")
     st.write("License Plate Detection & Recognition using YOLO for real-time applications.")
-
-    # 🔹 GitHub Projects
+    
     st.subheader("GitHub Projects")
     st.write("""
     - **Image Processing**
     - **Mango Variety Classification using Random Forest**
     - **Iris Flower Classification using Streamlit**
     """)
-
-    # 🔹 C# Projects
+    
     st.subheader("C# Projects")
     st.write("""
-    - **Optics Store Management System** (Real-Time Functional)
+    - **Optics Store Management System**
     - **Messenger Chat Application**
     - **Pharmacy Management System**
     - **ATM System**
