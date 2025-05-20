@@ -192,7 +192,7 @@ with col2:
     - **Vehicle Parking Space Detection:** YOLOv8 (Real-time space occupancy monitoring with empty & filled spot accounting).
     """)
     
-    st.subheader("Other Projects")
+    st.subheader("C# Projects")
     st.write("""
     - **Optics Store** (Real-Time Running Software)
     - **Pharmacy Management**
