@@ -115,42 +115,45 @@ st.header("🎓 Education")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.write("""
-    - **BS Software Engineering** - Government College University, Faisalabad (2020-2024)
-    - **Intermediate (12th) Science Group** - Pak Garrison College, Nankana Sahib (2018-2020)
+    - **BS Software Engineering** - Government College University, Faisalabad
+    - **Intermediate (12th) Science Group** - Pak Garrison College, Nankana Sahib
     """)
 
 st.markdown("---")
 
-# ✅ Skills
-st.header("🚀 Skills")
+# ✅ Skills & Interests
+st.header("🚀 Skills & Interest")
 st.write("""
 - **Languages:** C#, C++, Python
-- **Tools & IDEs:** VS Code, Jupyter, Visual Studio, PyCharm, Google Colab
-- **Databases:** SQL, Firebase, MySQL
-- **Other:** Git, Agile Methodologies, Data Preprocessing
-""")
-
-# ✅ Interests
-st.header("💡 Interests")
-st.write("""
-- Artificial Intelligence (AI)
-- Machine Learning (ML)
-- Natural Language Processing (NLP)
-- Deep Learning
-- Data Science
+- **Tools/IDE:** VS Code, Jupyter, Visual Studio, PyCharm, Google Colab
+- **Libraries & Frameworks:** Git, GitHub, YOLO, Streamlit, Hugging Face, Gradio, Transformers, Prompt Engineering, LLaMA3 (Groq), GPT-2/GPT-based Fine-Tuning
+- **API & Integration:** Groq LLM API Integration, Hugging Face Model Access via API Tokens, Secure API Key Management (Google Colab)
+- **Database:** SQL, Firebase, MySQL, FAISS (Vector Store)
+- **Laboratory:** RAG Application, Agile Methodologies, Waterfall, Data Preprocessing
+- **Interests:** Artificial Intelligence, Deep Learning, Machine Learning, Generative AI, NLP
 """)
 
 # ✅ Certifications
 st.header("🎓 Certifications")
 st.write("""
-- **Artificial Intelligence/ML (Microsoft Certificate - TEVTA)**
-  - [View Certificate](https://drive.google.com/file/d/1L4XM5P_aOYgLO1ijiZ0Lh_RM-nRZvHmt/view?usp=sharing)
-- **Deep Learning (iCodeGuru)**
-  - [View Certificate](https://drive.google.com/file/d/10dT_8UjglJigB_2KoSd-MV1LSjnfb-6P/view?usp=sharing)
-- **Python Certification**
-  - [View Certificate](https://drive.google.com/file/d/1ypI2QM9zMy6b7N1M9Hk9mzxT03_sWVgt/view?usp=sharing)
-- **CCNA, CCNP (CISCO & HUAWEI)**
-- **MCSE**
+- Artificial Intelligence/ML (Microsoft Certificate -TEVTA)
+- Deep Learning (iCodeGuru)
+- Python
+- CCNA, CCNP (CORVIT SYSTEM)
+- MCSE
+- Generative AI (iCodeGuru)
+""")
+
+# ✅ Core Concepts
+st.header("🧠 Core Concepts")
+st.write("""
+- Linear Regression Model
+- Neural Network Model
+- Convolution Neural Network Model
+- K-Means Clustering
+- Recurrent Neural Network
+- LSTM
+- Transformers NLP
 """)
 
 st.markdown("---")
@@ -161,42 +164,43 @@ st.header("📂 Projects")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.subheader("Final Year Project")
-    st.write("**AI Resume Analyzer:** AI-driven system for analyzing and scoring resumes for recruitment.")
+    st.write("**AI Resume Analyzer:** Created an AI-driven system to analyze and score resumes, assisting in the recruitment process by matching candidates with job requirements.")
     
-    st.subheader("AI & Python Projects")
+    st.subheader("Generative AI Projects")
     st.write("""
-    - **Model Training & Fine-tuning**
-    - **LSTM - Next Word Predictor**
-    - **Face Recognition System**
-    - **House Prices Prediction**
-    - **Rainfall Prediction**
-    - **Student Performance Prediction**
-    - **Salary Prediction using Multi-Feature Regression**
-    - **Old Car Price Prediction**
-    - **Logic Gate Prediction using Regression & Neural Networks**
-    - **Voice-to-Text System**
+    - **Visual Intelligence RAG System:** Gradio app for document Q&A with FAISS-based semantic search; text embedding via Hugging Face all-Minil.M-L6-v2; context-aware answer generation using LLaMA3-70B API.
+    - **GenAI Chatbot:** Gradio + Groq LLaMA3-based chatbot with secure API handling, structured replies, and user interaction controls.
+    - **Speech Diarization & Transcription App:** Gradio app using Whisper + pyAnnote for labeled transcription, with Groq's LLaMA3 generating summaries and recommended questions; includes visual speaker plot and metadata export.
+    """)
+    
+    st.subheader("AI/ML Projects")
+    st.write("""
+    - **Next Word Predictor (LSTM):** NLP-based word prediction using tokenization, embeddings, and a trained language model for autocomplete/chat tools.
+    - **Mango Variety Classification:** Random Forest Classification (Scikit-Learn, Pandas)
+    - **Iris Flower Prediction:** Classification App (Streamlit, Scikit-Learn)
+    - **Face Recognition:** Deep Learning (OpenCV, TensorFlow, Keras)
+    - **House Price Prediction:** Regression (Scikit-Learn, Pandas)
+    - **Student Performance Prediction:** Machine Learning (Scikit-Learn, Pandas)
+    - **Salary Prediction:** Multi-Feature Regression (Scikit-Learn, TensorFlow)
+    - **Used Car Price Prediction:** Regression (Scikit-Learn, Pandas)
+    - **Voice-to-Text:** Speech Recognition (DeepSpeech, TensorFlow)
     """)
     
     st.subheader("YOLO Projects")
-    st.write("License Plate Detection & Recognition using YOLO for real-time applications.")
-    
-    st.subheader("GitHub Projects")
     st.write("""
-    - **Image Processing**
-    - **Mango Variety Classification using Random Forest**
-    - **Iris Flower Classification using Streamlit**
+    - **License Plate Detection & Recognition:** YOLOv8 (Real-time detection for traffic and security).
+    - **Vehicle Parking Space Detection:** YOLOv8 (Real-time space occupancy monitoring with empty & filled spot accounting).
     """)
     
-    st.subheader("C# Projects")
+    st.subheader("Other Projects")
     st.write("""
-    - **Optics Store Management System (Real-Time Functional)**
-    - **Messenger Chat Application**
-    - **Pharmacy Management System**
+    - **Optics Store** (Real-Time Running Software)
+    - **Pharmacy Management**
+    - **Messenger Application (Chat)**
     - **ATM System**
     - **Car Racing Game**
     - **Bricks Breaking Game**
     - **Media Player**
-    - **Chat Bot**
     - **Weather Application**
     """)
 
